@@ -1,0 +1,5 @@
+_target_: "lightning.pytorch.loggers.WandbLogger"
+name: ${wandb_run_name}
+save_dir: "wandb_logs/"
+project: "training_stemnet"
+log_model: true

@@ -1,0 +1,30 @@
+_target_: "lightning.pytorch.trainer.Trainer"
+accelerator: ${device}
+strategy: ddp_find_unused_parameters_true
+devices: -1
+max_epochs: ${max_epochs}
+precision: 32
+log_every_n_steps: 1
+enable_checkpointing: true
+enable_progress_bar: true
+deterministic: false
+gradient_clip_val: 0.1
+accumulate_grad_batches: ${accumulate_grad_batches}
+callbacks: [
+  {
+    _target_: "lightning.pytorch.callbacks.ModelCheckpoint",
+    dirpath: checkpoints/stemnet_training,
+    filename: "best-checkpoint",
+    monitor: "avg_val_ckpt_loss",
+    save_top_k: 1,
+    mode: "min",
+    save_last: true
+  },
+  {
+    _target_: "lightning.pytorch.callbacks.LearningRateMonitor",
+    logging_interval: "step"   # or "epoch"
+  }
+]
+defaults:
+  - _self_
+  - logger: wandb_stemnet_logger

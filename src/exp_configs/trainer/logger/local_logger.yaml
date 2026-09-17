@@ -1,0 +1,3 @@
+_target_: lightning.pytorch.loggers.TensorBoardLogger
+save_dir: "logs"
+name: "local_logs"

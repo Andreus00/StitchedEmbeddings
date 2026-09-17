@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+checkpoints/*.ckpt
+checkpoints/*.pth
+checkpoints/loop_model_training_final/
+outputs/
+logs/
+wandb_logs/
+out_*/
+results_*/
+*_udf_data_0.01.npz

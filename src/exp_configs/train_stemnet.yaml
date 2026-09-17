@@ -1,0 +1,97 @@
+# StemNet (StemNet + PanelGroupedAttentionHeads) on GarmentCodeData v2.
+# Losses: KL, KL-latent, UDF, masked design parameters.
+# Defaults point at the bundled 3-garment sample; override root_dir / train_val_test_file for the
+# full dataset (see sbatch/run_training_stemnet.sbatch).
+
+seed: 42
+debug: false
+num_elements_debug: 5
+debug_gradients: false
+small_dataset: false
+device: cuda
+batch_size: 16
+accumulate_grad_batches: 2
+max_dist: 0.01
+max_epochs: 200
+unfreeze_every: 1
+unfreeze_lower_bound: 0
+number_of_starting_unfreezed_blocks: 12
+
+wandb_run_name: "stemnet"
+
+out_folder: out_training_stemnet
+
+train_val_test_file: data/sample/split.json
+root_dir: data/sample/GarmentCodeData_v2
+load_by_dataname: null   # the garment list comes from train_val_test_file
+
+# Initialisation of encoders / UDF decoder for training: the original Hunyuan3D-2.1 shape-VAE weights
+# (download hunyuan3d-vae-v2-1/model.fp16.ckpt from https://huggingface.co/tencent/Hunyuan3D-2.1, see README)
+# or a fine-tune of them. null = random initialisation (only sensible for smoke tests).
+hunyuan_init_ckpt: checkpoints/hunyuan3d-vae-v2-1.fp16.ckpt
+
+model_ckpt: null
+resume: false
+
+box_to_sim_ckpt: null
+sim_to_box_ckpt: null
+
+pcd_size: 5120
+imp_size_percent: 0.
+bnd_size_percent: 0.
+
+query_num: 1024
+
+num_latents: 256
+latent_dim: 1024
+
+model_normalization_type: "body_model_norm"  # "body_model_norm" or "box_norm"
+absolute_scale: 1.8  # scaling applied after the normalization. Used only for box_norm
+
+sample_from: "simulation"  # "boxmesh" or "simulation"  Affects from where points are sampled
+
+lr: 1e-4
+min_lr: 1e-6
+gamma_lr: 0.999
+lr_type: "exponential"  # "exponential" or "sinusoidal"
+scheduler_step_freq: 50
+weight_decay: 1e-4
+
+# ========== LOSS WEIGHTS ==========
+kl_lambda: 1e-4
+kl_latent_lambda: 1e-2
+udf_lambda: 1.
+param_lambda: 0.1
+
+test_split: test
+
+# ========== MODEL OPTIONS ==========
+use_discriminative_latents: true  # predict the pattern from the discriminative latents (after the transformer)
+
+# Pass normals to boxmesh encoder
+pass_normals: true
+
+# PanelGroupedAttentionHeads options
+dropout: 0.1
+head_version: "v3"  # "v1", "v2", or "v3"
+num_attention_heads: 8
+
+design_parameters:
+  _target_: src.util.design_params_reader.DesignParameters
+  # RC template: adds shirt.openfront + waistband.height (the two new GCDRC
+  # params we must learn) and meta.is_two_piece (dress vs top+bottom label).
+  path: "src/external/GarmentCodeAssets/assets/design_params/default_new.yaml"
+
+# Use masked parameters for better training
+parameter_loss_function: "evaluate_with_mask"
+parameter_aggregate_function: "aggregate_results_with_mask"
+
+th_alpha: 0.75
+th_beta: 1.35
+
+defaults:
+  - _self_
+  - datamodule: gcd_all
+  - model: stemnet
+  - trainer: trainer_stemnet
+  - optimizer: adamw

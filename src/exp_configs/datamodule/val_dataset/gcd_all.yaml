@@ -1,0 +1,20 @@
+_target_: src.datamodule.datasets.gcd_all.GCD_ALL
+
+root_dir: ${root_dir}
+load_by_dataname: ${load_by_dataname}
+small_dataset: ${small_dataset}
+
+device: ${device}
+seed: ${seed}
+split: validation
+debug: ${debug}
+num_elements_debug: ${num_elements_debug}
+pcd_size: ${pcd_size}
+imp_size_percent: ${imp_size_percent}
+bnd_size_percent: ${bnd_size_percent}
+query_num: ${query_num}
+model_normalization_type: ${model_normalization_type}
+sample_from: ${sample_from}
+absolute_scale: ${absolute_scale}
+design_parameters: ${design_parameters}
+train_val_test_file: ${train_val_test_file}

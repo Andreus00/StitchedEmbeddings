@@ -1,0 +1,18 @@
+# AdamW optimizer configuration for Hydra
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: ${lr}
+  betas: [0.9, 0.999]
+  eps: 1e-8
+  weight_decay: ${weight_decay}
+  amsgrad: false
+scheduler_cfg:
+  type: ${lr_type}
+  lr: ${lr}
+  min_lr: ${min_lr}
+  warmup_epochs: 1
+  epochs: ${max_epochs}
+  gamma: ${gamma_lr}
+  frequency: ${scheduler_step_freq}
+param_group_lr:
+  lr: ${lr}

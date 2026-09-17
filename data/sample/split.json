@@ -1,0 +1,17 @@
+{
+ "train": [
+  "garments_5000_0/default_body/rand_1328ERLDIC",
+  "garments_5000_0/default_body/rand_18GU2GADHJ",
+  "garments_5000_0/default_body/rand_7PYIP67HEM"
+ ],
+ "validation": [
+  "garments_5000_0/default_body/rand_1328ERLDIC",
+  "garments_5000_0/default_body/rand_18GU2GADHJ",
+  "garments_5000_0/default_body/rand_7PYIP67HEM"
+ ],
+ "test": [
+  "garments_5000_0/default_body/rand_1328ERLDIC",
+  "garments_5000_0/default_body/rand_18GU2GADHJ",
+  "garments_5000_0/default_body/rand_7PYIP67HEM"
+ ]
+}

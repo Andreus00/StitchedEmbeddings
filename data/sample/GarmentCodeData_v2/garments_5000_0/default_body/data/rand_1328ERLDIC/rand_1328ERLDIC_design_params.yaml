@@ -1,0 +1,882 @@
+design:
+  meta:
+    upper:
+      v: null
+      range:
+      - FittedShirt
+      - Shirt
+      - null
+      type: select_null
+      default_prob: 0.3
+    wb:
+      v: FittedWB
+      range:
+      - StraightWB
+      - FittedWB
+      type: select_null
+      default_prob: 0.5
+    bottom:
+      v: Pants
+      range:
+      - SkirtCircle
+      - AsymmSkirtCircle
+      - GodetSkirt
+      - Pants
+      - Skirt2
+      - SkirtManyPanels
+      - PencilSkirt
+      - SkirtLevels
+      type: select_null
+      default_prob: 0.3
+  waistband:
+    waist:
+      v: 1.0
+      range:
+      - 1.0
+      - 2
+      type: float
+      default_prob: 0.7
+    width:
+      v: 0.40304884690947673
+      range:
+      - 0.1
+      - 1.0
+      type: float
+      default_prob: 0.5
+  shirt:
+    strapless:
+      v: true
+      range:
+      - true
+      type: bool
+      default_prob: 0.8
+    length:
+      v: 1.2
+      range:
+      - 0.5
+      - 3.5
+      type: float
+      default_prob: 0.7
+    width:
+      v: 1.0688490400702215
+      range:
+      - 1.0
+      - 1.3
+      type: float
+      default_prob: 0.4
+    flare:
+      v: 1.0
+      range:
+      - 0.7
+      - 1.6
+      type: float
+      default_prob: 0.4
+  collar:
+    f_collar:
+      v: CircleNeckHalf
+      range:
+      - CircleNeckHalf
+      - CurvyNeckHalf
+      - VNeckHalf
+      - SquareNeckHalf
+      - TrapezoidNeckHalf
+      - CircleArcNeckHalf
+      - Bezier2NeckHalf
+      type: select
+      default_prob: 0.4
+    b_collar:
+      v: CircleNeckHalf
+      range:
+      - CircleNeckHalf
+      - CurvyNeckHalf
+      - VNeckHalf
+      - SquareNeckHalf
+      - TrapezoidNeckHalf
+      - CircleArcNeckHalf
+      - Bezier2NeckHalf
+      type: select
+      default_prob: 0.8
+    width:
+      v: -0.04034661431847053
+      range:
+      - -0.5
+      - 1
+      type: float
+      default_prob: 0.4
+    fc_depth:
+      v: 0.4
+      range:
+      - 0.3
+      - 2
+      type: float
+      default_prob: 0.3
+    bc_depth:
+      v: 0
+      range:
+      - 0
+      - 2
+      type: float
+      default_prob: 0.4
+    fc_angle:
+      v: 93
+      range:
+      - 70
+      - 110
+      type: int
+    bc_angle:
+      v: 70
+      range:
+      - 70
+      - 110
+      type: int
+    f_bezier_x:
+      v: 0.3
+      range:
+      - 0.05
+      - 0.95
+      type: float
+      default_prob: 0.4
+    f_bezier_y:
+      v: 0.0924534905951987
+      range:
+      - 0.05
+      - 0.95
+      type: float
+      default_prob: 0.4
+    b_bezier_x:
+      v: 0.15
+      range:
+      - 0.05
+      - 0.95
+      type: float
+      default_prob: 0.4
+    b_bezier_y:
+      v: 0.45989332753727646
+      range:
+      - 0.05
+      - 0.95
+      type: float
+      default_prob: 0.4
+    f_flip_curve:
+      v: true
+      range:
+      - true
+      type: bool
+      default_prob: 0.8
+    b_flip_curve:
+      v: false
+      range:
+      - true
+      - false
+      type: bool
+      default_prob: 0.8
+    component:
+      style:
+        v: null
+        range:
+        - Turtle
+        - SimpleLapel
+        - Hood2Panels
+        - null
+        type: select_null
+        default_prob: 0.6
+      depth:
+        v: 4
+        range:
+        - 2
+        - 8
+        type: int
+      lapel_standing:
+        v: false
+        range:
+        - true
+        - false
+        type: bool
+      hood_depth:
+        v: 1.679516157777531
+        range:
+        - 1
+        - 2
+        type: float
+        default_prob: 0.6
+      hood_length:
+        v: 1
+        range:
+        - 1
+        - 1.5
+        type: float
+        default_prob: 0.6
+  sleeve:
+    sleeveless:
+      v: false
+      range:
+      - true
+      - false
+      type: bool
+      default_prob: 0.7
+    armhole_shape:
+      v: ArmholeAngle
+      range:
+      - ArmholeSquare
+      - ArmholeAngle
+      type: select
+      default_prob: 0.7
+    length:
+      v: 0.15133456246525462
+      range:
+      - 0.1
+      - 1.15
+      type: float
+    connecting_width:
+      v: 0.2
+      range:
+      - 0
+      - 2
+      type: float
+      default_prob: 0.6
+    end_width:
+      v: 1.0
+      range:
+      - 0.2
+      - 2
+      type: float
+      default_prob: 0.4
+    sleeve_angle:
+      v: 35
+      range:
+      - 10
+      - 50
+      type: int
+    opening_dir_mix:
+      v: 0.1
+      range:
+      - -0.9
+      - 0.8
+      type: float
+      default_prob: 1.0
+    standing_shoulder:
+      v: false
+      range:
+      - true
+      - false
+      type: bool
+      default_prob: 0.8
+    standing_shoulder_len:
+      v: 8.07831994163485
+      range:
+      - 4
+      - 10
+      type: float
+    connect_ruffle:
+      v: 1.4784953333649486
+      range:
+      - 1
+      - 2
+      type: float
+      default_prob: 0.4
+    smoothing_coeff:
+      v: 0.25
+      range:
+      - 0.1
+      - 0.4
+      type: float
+      default_prob: 0.8
+    cuff:
+      type:
+        v: null
+        range:
+        - CuffBand
+        - CuffSkirt
+        - CuffBandSkirt
+        - null
+        type: select_null
+      top_ruffle:
+        v: 2.6880492245975582
+        range:
+        - 1
+        - 3
+        type: float
+      cuff_len:
+        v: 0.1
+        range:
+        - 0.05
+        - 0.9
+        type: float
+        default_prob: 0.7
+      skirt_fraction:
+        v: 0.5
+        range:
+        - 0.1
+        - 0.9
+        type: float
+        default_prob: 0.5
+      skirt_flare:
+        v: 1.8878502068318643
+        range:
+        - 1
+        - 2
+        type: float
+      skirt_ruffle:
+        v: 1.3657943657907277
+        range:
+        - 1
+        - 1.5
+        type: float
+        default_prob: 0.3
+  left:
+    enable_asym:
+      v: false
+      range:
+      - true
+      - false
+      type: bool
+      default_prob: 0.8
+    shirt:
+      strapless:
+        v: true
+        range:
+        - true
+        type: bool
+        default_prob: 0.8
+      width:
+        v: 1.0
+        range:
+        - 1.0
+        - 1.3
+        type: float
+        default_prob: 0.4
+      flare:
+        v: 1.0
+        range:
+        - 0.7
+        - 1.6
+        type: float
+        default_prob: 0.4
+    collar:
+      f_collar:
+        v: CircleArcNeckHalf
+        range:
+        - CurvyNeckHalf
+        - VNeckHalf
+        - SquareNeckHalf
+        - TrapezoidNeckHalf
+        - CircleArcNeckHalf
+        - Bezier2NeckHalf
+        type: select
+        default_prob: 0.4
+      b_collar:
+        v: VNeckHalf
+        range:
+        - CurvyNeckHalf
+        - VNeckHalf
+        - SquareNeckHalf
+        - TrapezoidNeckHalf
+        - CircleArcNeckHalf
+        - Bezier2NeckHalf
+        type: select
+        default_prob: 0.8
+      width:
+        v: 0.16724554167242112
+        range:
+        - 0
+        - 1
+        type: float
+        default_prob: 0.4
+      fc_angle:
+        v: 103
+        range:
+        - 70
+        - 110
+        type: int
+      bc_angle:
+        v: 71
+        range:
+        - 70
+        - 110
+        type: int
+      f_bezier_x:
+        v: 0.31645262787786005
+        range:
+        - 0.05
+        - 0.95
+        type: float
+        default_prob: 0.4
+      f_bezier_y:
+        v: 0.4640257163474161
+        range:
+        - 0.05
+        - 0.95
+        type: float
+      b_bezier_x:
+        v: 0.5
+        range:
+        - 0.05
+        - 0.95
+        type: float
+        default_prob: 0.4
+      b_bezier_y:
+        v: 0.8712436113118208
+        range:
+        - 0.05
+        - 0.95
+        type: float
+      f_flip_curve:
+        v: false
+        range:
+        - true
+        - false
+        type: bool
+        default_prob: 0.8
+      b_flip_curve:
+        v: false
+        range:
+        - true
+        - false
+        type: bool
+        default_prob: 0.8
+    sleeve:
+      sleeveless:
+        v: true
+        range:
+        - true
+        type: bool
+        default_prob: 0.7
+      armhole_shape:
+        v: ArmholeCurve
+        range:
+        - ArmholeSquare
+        - ArmholeAngle
+        - ArmholeCurve
+        type: select
+        default_prob: 0.7
+      length:
+        v: 0.7110758858465808
+        range:
+        - 0.1
+        - 1.15
+        type: float
+      connecting_width:
+        v: 0.2
+        range:
+        - 0
+        - 2
+        type: float
+        default_prob: 0.6
+      end_width:
+        v: 0.29445102865139056
+        range:
+        - 0.2
+        - 2
+        type: float
+        default_prob: 0.4
+      sleeve_angle:
+        v: 11
+        range:
+        - 10
+        - 50
+        type: int
+      opening_dir_mix:
+        v: 0.2
+        range:
+        - -0.9
+        - 0.8
+        type: float
+        default_prob: 1.0
+      standing_shoulder:
+        v: false
+        range:
+        - true
+        - false
+        type: bool
+        default_prob: 0.8
+      standing_shoulder_len:
+        v: 4.278711398473379
+        range:
+        - 4
+        - 10
+        type: float
+      connect_ruffle:
+        v: 1.8544745242041456
+        range:
+        - 1
+        - 2
+        type: float
+        default_prob: 0.4
+      smoothing_coeff:
+        v: 0.25
+        range:
+        - 0.1
+        - 0.4
+        type: float
+        default_prob: 0.8
+      cuff:
+        type:
+          v: CuffBandSkirt
+          range:
+          - CuffBand
+          - CuffSkirt
+          - CuffBandSkirt
+          - null
+          type: select_null
+        top_ruffle:
+          v: 1.463587765053652
+          range:
+          - 1
+          - 2
+          type: float
+        cuff_len:
+          v: 0.1
+          range:
+          - 0.05
+          - 0.9
+          type: float
+          default_prob: 0.7
+        skirt_fraction:
+          v: 0.5
+          range:
+          - 0.1
+          - 0.9
+          type: float
+          default_prob: 0.5
+        skirt_flare:
+          v: 1.253016902283725
+          range:
+          - 1
+          - 2
+          type: float
+        skirt_ruffle:
+          v: 1.0071974031207018
+          range:
+          - 1
+          - 1.5
+          type: float
+          default_prob: 0.3
+  skirt:
+    length:
+      v: -0.13160855681082628
+      range:
+      - -0.2
+      - 0.95
+      type: float
+    rise:
+      v: 0.52550520137197
+      range:
+      - 0.5
+      - 1
+      type: float
+      default_prob: 0.3
+    ruffle:
+      v: 1.4168131403974147
+      range:
+      - 1
+      - 2
+      type: float
+      default_prob: 0.3
+    bottom_cut:
+      v: 0
+      range:
+      - 0
+      - 0.9
+      type: float
+      default_prob: 0.3
+    flare:
+      v: 0
+      range:
+      - 0
+      - 20
+      type: int
+      default_prob: 0.5
+  flare-skirt:
+    length:
+      v: 0.8203650696179816
+      range:
+      - -0.2
+      - 0.95
+      type: float
+    rise:
+      v: 0.8942882867342065
+      range:
+      - 0.5
+      - 1
+      type: float
+      default_prob: 0.3
+    suns:
+      v: 1.6868219931383326
+      range:
+      - 0.1
+      - 1.95
+      type: float
+    skirt-many-panels:
+      n_panels:
+        v: 8
+        range:
+        - 4
+        - 15
+        type: int
+      panel_curve:
+        v: -0.35
+        range:
+        - -0.35
+        - -0.25
+        - -0.15
+        - 0
+        - 0.15
+        - 0.25
+        - 0.35
+        - 0.45
+        type: select
+    asymm:
+      front_length:
+        v: 0.19655696487059987
+        range:
+        - 0.1
+        - 0.9
+        type: float
+        default_prob: 0.5
+    cut:
+      add:
+        v: true
+        range:
+        - true
+        type: bool
+        default_prob: 0.6
+      depth:
+        v: 0.5
+        range:
+        - 0.05
+        - 0.95
+        type: float
+        default_prob: 0.6
+      width:
+        v: 0.13005582048296294
+        range:
+        - 0.05
+        - 0.4
+        type: float
+      place:
+        v: -0.42301492369973226
+        range:
+        - -1
+        - 1
+        type: float
+  godet-skirt:
+    base:
+      v: PencilSkirt
+      range:
+      - Skirt2
+      - PencilSkirt
+      type: select
+      default_prob: 0.7
+    insert_w:
+      v: 18
+      range:
+      - 10
+      - 50
+      type: int
+    insert_depth:
+      v: 25
+      range:
+      - 10
+      - 50
+      type: int
+    num_inserts:
+      v: 8
+      range:
+      - 4
+      - 6
+      - 8
+      - 10
+      - 12
+      type: select
+    cuts_distance:
+      v: 0
+      range:
+      - 0
+      - 10
+      type: int
+  pencil-skirt:
+    length:
+      v: 0.931654332133623
+      range:
+      - 0.2
+      - 0.95
+      type: float
+    rise:
+      v: 0.6490167154581887
+      range:
+      - 0.5
+      - 1
+      type: float
+      default_prob: 0.3
+    flare:
+      v: 0.8774036774624301
+      range:
+      - 0.6
+      - 1.5
+      type: float
+      default_prob: 0.3
+    low_angle:
+      v: 30
+      range:
+      - -30
+      - 30
+      type: int
+      default_prob: 0.7
+    front_slit:
+      v: 0.44330406471690265
+      range:
+      - 0
+      - 0.9
+      type: float
+      default_prob: 0.4
+    back_slit:
+      v: 0
+      range:
+      - 0
+      - 0.9
+      type: float
+      default_prob: 0.4
+    left_slit:
+      v: 0
+      range:
+      - 0
+      - 0.9
+      type: float
+      default_prob: 0.6
+    right_slit:
+      v: 0
+      range:
+      - 0
+      - 0.9
+      type: float
+      default_prob: 0.6
+    style_side_cut:
+      v: null
+      range:
+      - Sun
+      - SIGGRAPH_logo
+      - SVGFile
+      type: select_null
+      default_prob: 1.0
+    style_side_file:
+      v: assets\img\test_shape.svg
+      range:
+      - assets\img\Logo_adjusted.svg
+      - assets\img\test_shape.svg
+      type: file_svg
+  levels-skirt:
+    base:
+      v: Skirt2
+      range:
+      - Skirt2
+      - PencilSkirt
+      - SkirtCircle
+      - AsymmSkirtCircle
+      type: select
+    level:
+      v: Skirt2
+      range:
+      - Skirt2
+      - SkirtCircle
+      - AsymmSkirtCircle
+      type: select
+    num_levels:
+      v: 2
+      range:
+      - 1
+      - 5
+      type: int
+    level_ruffle:
+      v: 1.4440278612966426
+      range:
+      - 1
+      - 1.7
+      type: float
+    length:
+      v: 0.36408738689526793
+      range:
+      - 0.2
+      - 0.95
+      type: float
+    rise:
+      v: 0.5643210052441348
+      range:
+      - 0.5
+      - 1
+      type: float
+      default_prob: 0.3
+    base_length_frac:
+      v: 0.28470041147599356
+      range:
+      - 0.2
+      - 0.8
+      type: float
+  pants:
+    length:
+      v: 0.5034542828714251
+      range:
+      - 0.2
+      - 0.9
+      type: float
+    width:
+      v: 1.0
+      range:
+      - 1.0
+      - 1.5
+      type: float
+      default_prob: 0.5
+    flare:
+      v: 0.7573336315546125
+      range:
+      - 0.5
+      - 1.2
+      type: float
+      default_prob: 0.3
+    rise:
+      v: 0.9519339504929538
+      range:
+      - 0.5
+      - 1
+      type: float
+      default_prob: 0.3
+    cuff:
+      type:
+        v: null
+        range:
+        - CuffBand
+        - CuffSkirt
+        - CuffBandSkirt
+        - null
+        type: select_null
+        default_prob: 0.5
+      top_ruffle:
+        v: 1.7965562175402545
+        range:
+        - 1
+        - 2
+        type: float
+      cuff_len:
+        v: 0.6855242064102374
+        range:
+        - 0.05
+        - 0.9
+        type: float
+        default_prob: 0.3
+      skirt_fraction:
+        v: 0.22477523320271742
+        range:
+        - 0.1
+        - 0.9
+        type: float
+      skirt_flare:
+        v: 1.8888324194591304
+        range:
+        - 1
+        - 2
+        type: float
+      skirt_ruffle:
+        v: 1.1567356771107988
+        range:
+        - 1
+        - 1.5
+        type: float

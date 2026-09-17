@@ -1,0 +1,37 @@
+_target_: src.model.training_loop_lightning.TrainingLoopLightning
+cfg:
+  max_dist: ${max_dist}
+  out_folder: ${out_folder}
+  device: ${device}
+  debug_gradients: ${debug_gradients}
+  design_parameters: ${design_parameters}
+  unfreeze_every: ${unfreeze_every}
+  unfreeze_lower_bound: ${unfreeze_lower_bound}
+  number_of_starting_unfreezed_blocks: ${number_of_starting_unfreezed_blocks}
+  query_num: ${query_num}
+  kl_lambda: ${kl_lambda}
+  kl_latent_lambda: ${kl_latent_lambda}
+  udf_lambda: ${udf_lambda}
+  param_lambda: ${param_lambda}
+  parameter_loss_function: ${parameter_loss_function}
+  parameter_aggregate_function: ${parameter_aggregate_function}
+  pass_normals: ${pass_normals}
+  use_discriminative_latents: ${use_discriminative_latents}
+  model:
+    _target_: src.model.vae.stemnet.StemNet
+    design_parameters: ${design_parameters}
+    use_discriminative_latents: ${use_discriminative_latents}
+    box_to_sim_model:
+      _target_: src.model.vae.hy3d_aligned.HunyuanMeshAligned
+      latent_query_num: ${num_latents}
+      importance_percentage: ${imp_size_percent}
+      boundary_percentage: ${bnd_size_percent}
+      ckpt: ${box_to_sim_ckpt}
+      init_ckpt: ${hunyuan_init_ckpt}
+    sim_to_pattern_model:
+      _target_: src.util.design_params_reader.PanelGroupedAttentionHeads
+      design_params: ${design_parameters}
+      input_dim: ${latent_dim}
+      dropout: ${dropout}
+      head_version: ${head_version}
+      num_attention_heads: ${num_attention_heads}
